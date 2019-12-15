@@ -6,8 +6,13 @@ case $1 in
         FOLDER_NAME="02. Observer Pattern"
         #this is terrible but whatever
         FOLDER_NAME_SPEC="cd\ .\/02.\\\ Observer\\\ Pattern" ;;
-    * ) echo 'Unsupported project nam; use: --observer' exit 1
+    * ) echo 'Unsupported project name! use: --observer'
 esac
+
+if [ -z "$PROJ_NAME" ]
+then
+    exit 1
+fi
 
 #modify premake file
 sed -i '' "s/project.*/project \"$PROJ_NAME\"/" ./cpp/premake5.lua
