@@ -1,7 +1,9 @@
 #include <iostream>
+//#include <Advanced.hpp>
+#include <Basic.hpp>
 
 int main()
 {
-    std::cout<<"Test, press enter to exit"<<std::endl;
+    run();
     std::cin.get();
 }
