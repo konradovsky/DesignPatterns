@@ -5,7 +5,7 @@ case $1 in
         PROJ_NAME="Observer"
         FOLDER_NAME="02. Observer Pattern"
         #this is terrible but whatever
-        FOLDER_NAME_SPEC="cd\ .\/02.\\\ Observer\\\ Pattern" ;;
+        FOLDER_NAME_SPEC="cd\ ..\/02.\\\ Observer\\\ Pattern" ;;
     * ) echo 'Unsupported project name! use: --observer'
 esac
 
@@ -15,13 +15,13 @@ then
 fi
 
 #modify premake file
-sed -i '' "s/project.*/project \"$PROJ_NAME\"/" ./cpp/premake5.lua
+sed -i '' "s/project.*/project \"$PROJ_NAME\"/" ./premake5.lua
 #modify build script
-sed -i '' "s/cd \..*/$FOLDER_NAME_SPEC\/C++/" ./cpp/jebacVSCode.sh
+sed -i '' "s/cd \..*/$FOLDER_NAME_SPEC\/C++/" ./jebacVSCode.sh
 
 #copy premake into right directory
-cp ./cpp/premake5.lua ./"$FOLDER_NAME"/C++/
+cp ./premake5.lua ../"$FOLDER_NAME"/C++/
 
 #set build task in vs code
 DUPA="Debug\/$PROJ_NAME\","
-sed -i '' "s/Debug.*/$DUPA/" ./.vscode/launch.json
+sed -i '' "s/Debug.*/$DUPA/" ../.vscode/launch.json
